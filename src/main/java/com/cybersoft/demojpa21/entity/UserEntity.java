@@ -23,19 +23,18 @@ public class UserEntity {
     // Bảng nào chứa khoá ngoại thì cột khoá ngoại sẽ là ManyToOne và JoinColumn("tên_cột_khoá_ngoại_trong_database)
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private RoleEntity role;
+    private RoleEntity roleId;
+
+    public RoleEntity getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(RoleEntity roleId) {
+        this.roleId = roleId;
+    }
+
     @OneToMany(mappedBy = "userId")
     private Set<TaskEntity> user;
-
-    public RoleEntity getRole() {
-        return role;
-    }
-
-    public void setRole(RoleEntity role) {
-        this.role = role;
-    }
-
-
 
     public Set<TaskEntity> getUser() {
         return user;
