@@ -4,17 +4,23 @@ import jakarta.persistence.*;
 
 import java.util.Set;
 
+
+
 @Entity(name = "users")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(name = "email")
     private String email;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "fullname")
     private String fullName;
+
     @Column(name = "avatar")
     private String avatar;
 
@@ -25,6 +31,9 @@ public class UserEntity {
     @JoinColumn(name = "role_id")
     private RoleEntity roleId;
 
+    @OneToMany(mappedBy = "userId")
+    private Set<TaskEntity> user;
+
     public RoleEntity getRoleId() {
         return roleId;
     }
@@ -33,9 +42,6 @@ public class UserEntity {
         this.roleId = roleId;
     }
 
-    @OneToMany(mappedBy = "userId")
-    private Set<TaskEntity> user;
-
     public Set<TaskEntity> getUser() {
         return user;
     }
@@ -43,8 +49,6 @@ public class UserEntity {
     public void setUser(Set<TaskEntity> user) {
         this.user = user;
     }
-
-
 
     public int getId() {
         return id;
@@ -85,6 +89,4 @@ public class UserEntity {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
-
-
 }
