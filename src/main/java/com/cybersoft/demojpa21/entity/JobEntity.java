@@ -1,6 +1,6 @@
 package com.cybersoft.demojpa21.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.util.Set;
 
