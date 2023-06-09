@@ -10,6 +10,8 @@ import java.util.Set;
 public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    IDENTITY: dành cho MySQL, MicrosoftSQL
+//    SEQUENCE: Orecal, Postgres
     private int id;
 
     @Column(name = "name")
@@ -21,6 +23,7 @@ public class RoleEntity {
     // @OneToMany
     // mappedBy: Nhận vào tên biến bên Entity map khoá ngoại
     @OneToMany(mappedBy = "roleId")
+    // Many tham chiếu đến 1 List/Set
     @JsonIgnore
     private Set<UserEntity> role;
 

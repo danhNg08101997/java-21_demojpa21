@@ -28,6 +28,7 @@ public class UserEntity {
     // OneToOne, OneToMany, ManyToOne
     // Bảng nào chứa khoá ngoại thì cột khoá ngoại sẽ là ManyToOne và JoinColumn("tên_cột_khoá_ngoại_trong_database)
     @ManyToOne
+    //One tham chiếu đến 1 đối tượng
     @JoinColumn(name = "role_id")
     private RoleEntity roleId;
 
